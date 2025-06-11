@@ -1,0 +1,207 @@
+/* General Body and Font Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c2f33;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+header h1 {
+    color: #7289da;
+    border-bottom: 2px solid #7289da;
+    padding-bottom: 10px;
+}
+
+/* Main Game Layout */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* This new container will hold the board and the overlay */
+#board-container {
+    position: relative; /* Crucial for positioning the overlay */
+    width: 400px;
+    min-width: 300px;
+}
+
+#myBoard {
+    width: 100%; 
+}
+
+/* Info Panel Styling */
+.info-panel {
+    background-color: #23272a;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    min-width: 250px;
+}
+
+.info-panel h2 {
+    color: #7289da;
+    margin-top: 0;
+    border-bottom: 1px solid #4f545c;
+    padding-bottom: 8px;
+}
+
+#status {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    min-height: 25px; /* Prevent layout shift */
+}
+
+/* --- NEW AI STATUS STYLE --- */
+#ai-status {
+    display: none; /* Hidden by default */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #c7c7c7;
+}
+
+#ai-status .spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #7289da;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Buttons */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+#flip-board-btn {
+    background-color: #7289da;
+}
+#flip-board-btn:hover {
+    background-color: #5f73bc;
+}
+
+/* New style for the in-game reset button */
+#new-game-btn {
+    background-color: #f44336; /* A reddish color for reset */
+}
+#new-game-btn:hover {
+    background-color: #d32f2f;
+}
+
+
+/* Captured Pieces and PGN Styling */
+.captured-pieces {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    word-wrap: break-word;
+}
+
+#pgn-container {
+    background-color: #2c2f33;
+    border-radius: 4px;
+    padding: 10px;
+    height: 150px;
+    overflow-y: auto;
+    border: 1px solid #4f545c;
+}
+
+#pgn {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap; /* Allows wrapping of long PGN string */
+    margin: 0;
+}
+
+
+/* Square Highlighting Overlay */
+.square-highlight-overlay {
+    position: absolute;
+    pointer-events: none;
+    border: 3px solid rgba(255, 251, 0, 0.7); /* Thicker, semi-transparent highlight */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Sits on top of the square color, below the piece */
+}
+
+/* --- Game Start/End Overlay --- */
+#game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100; /* Ensure it's on top of everything */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px; /* Match board corners if any */
+}
+
+#overlay-new-game-btn {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4caf50; /* A nice green color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#overlay-new-game-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #board-container {
+        width: 90vw; /* Make board responsive to viewport width */
+        max-width: 400px;
+    }
+    
+    .info-panel {
+        width: 90vw;
+        max-width: 400px;
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chess Game</title>
+    
+    <!-- External CSS for chessboard.js -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css"
+          crossorigin="anonymous">
+          
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>GPT-4 Vs. OpenAi</h1>
+    </header>
+
+    <main class="game-container">
+        <!-- The Chessboard container -->
+        <div id="board-container">
+            <div id="myBoard"></div>
+            <!-- This overlay starts the scripted game -->
+            <div id="game-overlay">
+                <button id="overlay-new-game-btn">Play Scripted Game</button>
+            </div>
+             <!-- New Indicator Box -->
+            <div id="game-indicator"></div>
+        </div>
+
+        <!-- Panel for Game Information and Controls -->
+        <div class="info-panel">
+            <h2>Game Status</h2>
+            <p id="status">Ready to Start</p>
+
+            <div class="controls">
+                <button id="new-game-btn">Restart Game</button>
+                <button id="flip-board-btn">Flip Board</button>
+            </div>
+
+            <h2>Captured Pieces</h2>
+            <div class="captured-pieces">
+                <strong>White:</strong> <span id="captured-by-black"></span>
+            </div>
+            <div class="captured-pieces">
+                <strong>Black:</strong> <span id="captured-by-white"></span>
+            </div>
+
+            <h2>Move History (PGN)</h2>
+            <div id="pgn-container">
+                <pre id="pgn"></pre>
+            </div>
+        </div>
+    </main>
+
+    <!-- External JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+
+    <!-- Your Custom JavaScript -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>

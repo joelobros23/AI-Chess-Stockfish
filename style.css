@@ -1,0 +1,222 @@
+/* General Body and Font Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c2f33;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+header h1 {
+    color: #7289da;
+    border-bottom: 2px solid #7289da;
+    padding-bottom: 10px;
+}
+
+/* Main Game Layout */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+}
+
+#board-container {
+    position: relative;
+    width: 400px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#myBoard {
+    width: 100%; 
+}
+
+/* --- NEW GAME INDICATOR STYLES --- */
+#game-indicator {
+    display: none; /* Hidden by default */
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.indicator-white {
+    background-color: #3b82f6; /* Blue */
+}
+.indicator-black {
+    background-color: #f97316; /* Orange */
+}
+.indicator-winner {
+    background-color: #22c55e; /* Green */
+}
+
+
+/* Info Panel Styling */
+.info-panel {
+    background-color: #23272a;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    min-width: 250px;
+}
+
+.info-panel h2 {
+    color: #7289da;
+    margin-top: 0;
+    border-bottom: 1px solid #4f545c;
+    padding-bottom: 8px;
+}
+
+#status {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    min-height: 25px; /* Prevent layout shift */
+}
+
+/* Buttons */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+#flip-board-btn {
+    background-color: #7289da;
+}
+#flip-board-btn:hover {
+    background-color: #5f73bc;
+}
+
+#new-game-btn {
+    background-color: #f44336;
+}
+#new-game-btn:hover {
+    background-color: #d32f2f;
+}
+
+
+/* Captured Pieces and PGN Styling */
+.captured-pieces {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    word-wrap: break-word;
+}
+
+#pgn-container {
+    background-color: #2c2f33;
+    border-radius: 4px;
+    padding: 10px;
+    height: 150px;
+    overflow-y: auto;
+    border: 1px solid #4f545c;
+}
+
+#pgn {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+
+/* Square Highlighting Overlay */
+.square-highlight-overlay {
+    position: absolute;
+    pointer-events: none;
+    border: 3px solid rgba(255, 251, 0, 0.7);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Game Start/End Overlay */
+#game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+#overlay-new-game-btn {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#overlay-new-game-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* --- NEW: Custom Piece Colors --- */
+/* Targeting white pieces to make them blue */
+#myBoard [class^="white-"] img {
+    filter: brightness(0.9) sepia(1) hue-rotate(180deg) saturate(8);
+}
+
+/* Targeting black pieces to make them orange */
+#myBoard [class^="black-"] img {
+    filter: sepia(1) hue-rotate(320deg) saturate(6) brightness(0.8);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #board-container {
+        width: 90vw;
+        max-width: 400px;
+    }
+    
+    .info-panel {
+        width: 90vw;
+        max-width: 400px;
+    }
+}

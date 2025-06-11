@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Game: AI vs AI</title>
+    
+    <!-- External CSS for chessboard.js -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css"
+          crossorigin="anonymous">
+          
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Chess Game: AI vs AI Battle</h1>
+    </header>
+
+    <main class="game-container">
+        <!-- The Chessboard container now includes the game overlay -->
+        <div id="board-container">
+            <div id="myBoard"></div>
+            <!-- This is the new overlay for starting/ending the game -->
+            <div id="game-overlay">
+                <button id="overlay-new-game-btn">Start AI Battle</button>
+            </div>
+        </div>
+
+        <!-- Panel for Game Information and Controls -->
+        <div class="info-panel">
+            <h2>Game Status</h2>
+            <p id="status">Ready to Start</p>
+            
+            <!-- This new element will show when the AI is thinking -->
+            <div id="ai-status"></div>
+
+            <div class="controls">
+                <button id="new-game-btn">New Game</button>
+                <button id="flip-board-btn">Flip Board</button>
+            </div>
+
+            <h2>Captured Pieces</h2>
+            <div class="captured-pieces">
+                <strong>White (Llama):</strong> <span id="captured-by-black"></span>
+            </div>
+            <div class="captured-pieces">
+                <strong>Black (Gemini):</strong> <span id="captured-by-white"></span>
+            </div>
+
+            <h2>Move History (PGN)</h2>
+            <div id="pgn-container">
+                <pre id="pgn"></pre>
+            </div>
+        </div>
+    </main>
+
+    <!-- External JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+
+    <!-- Your Custom JavaScript -->
+    <!-- IMPORTANT: The White AI script must be included BEFORE the main script -->
+    <script src="white_ai_script.js" defer></script>
+    <script src="script.js" defer></script>
+
+</body>
+</html>
