@@ -203,7 +203,6 @@ header h1 {
 }
 
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .game-container {
         flex-direction: column;
